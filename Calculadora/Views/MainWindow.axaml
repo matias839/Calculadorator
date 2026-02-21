@@ -3,18 +3,191 @@
         xmlns:vm="using:Calculadora.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="680" d:DesignHeight="450"
         x:Class="Calculadora.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Calculadora">
-
+        Title="Calculadora"
+        CanResize="False"
+        Width="680" Height="450"
+        >
+    <Window.Background>
+        <SolidColorBrush Color="#FF2A2A2A"/>
+    </Window.Background>
+    
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Border
+            Grid.Row="0"
+            Background="#FF2E2E2E"
+            Width="640" Height="100"
+            CornerRadius="5"
+            BorderThickness="1" BorderBrush="#FF1E1E1E"
+            Margin="20,20,20,0"
+            >
+            <TextBlock Text="0123456789" 
+                       Foreground="White" FontSize="36" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Margin="10"/>
+        </Border>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Content="DEL"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FFFF2F2F" Foreground="White" CornerRadius="5"
+                    BorderThickness="0"
+                    />
+            <Button Content="("
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            <Button Content=")"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            <Button Content="MOD"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            <Button Content="π"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5,0,0">
+            <Button Content="7"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"
+            />
+            <Button Content="8"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            <Button Content="9"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            <Button Content="÷"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            <Button Content="√"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5,0,0">
+            <Button Content="4"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"
+            />
+            <Button Content="5"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            <Button Content="6"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            <Button Content="*"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            <Button Content="X²"
+                    Width="120" Height="50" Margin="5, 0, 5, 0"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                    BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+        </StackPanel>
+            
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5,0,0">
+                    <Button Content="1"
+                            Width="120" Height="50" Margin="5, 0, 5, 0"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                            BorderThickness="1" BorderBrush="#FF1E1E1E"
+                    />
+                    <Button Content="2"
+                            Width="120" Height="50" Margin="5, 0, 5, 0"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                            BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+                    <Button Content="3"
+                            Width="120" Height="50" Margin="5, 0, 5, 0"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                            BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+                    <Button Content="-"
+                            Width="120" Height="50" Margin="5, 0, 5, 0"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                            BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+                    <Button Content="X!"
+                            Width="120" Height="50" Margin="5, 0, 5, 0"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                            BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5,0,0">
+                    <Button Content="0"
+                            Width="120" Height="50" Margin="5, 0, 5, 0"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                            BorderThickness="1" BorderBrush="#FF1E1E1E"
+                    />
+                    <Button Content=","
+                            Width="120" Height="50" Margin="5, 0, 5, 0"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                            BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+                    <Button Content="%"
+                            Width="120" Height="50" Margin="5, 0, 5, 0"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                            BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+                    <Button Content="+"
+                            Width="120" Height="50" Margin="5, 0, 5, 0"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                            BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+                    <Button Content="="
+                            Width="120" Height="50" Margin="5, 0, 5, 0"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Background="Green" Foreground="White" FontSize="20" CornerRadius="5"
+                            BorderThickness="1" BorderBrush="#FF1E1E1E"/>
+            </StackPanel>
+    </Grid>
 </Window>
