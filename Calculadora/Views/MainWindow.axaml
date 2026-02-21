@@ -11,26 +11,34 @@
         CanResize="False"
         Width="680" Height="450"
         >
+    <!-- Fondo oscuro para toda la ventana -->
     <Window.Background>
         <SolidColorBrush Color="#FF2A2A2A"/>
     </Window.Background>
     
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <!-- DataContext para el diseñador (vista previa en IDE) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     
+    <!-- Grid principal con 6 filas para organizar los elementos verticalmente -->
     <Grid>
         <Grid.RowDefinitions>
+            <!-- Fila 0: Pantalla de display -->
             <RowDefinition Height="Auto"/>
+            <!-- Fila 1: DEL, (, ), MOD, π -->
             <RowDefinition Height="Auto"/>
+            <!-- Fila 2: 7, 8, 9, ÷, √ -->
             <RowDefinition Height="Auto"/>
+            <!-- Fila 3: 4, 5, 6, *, ² -->
             <RowDefinition Height="Auto"/>
+            <!-- Fila 4: 1, 2, 3, -, ! -->
             <RowDefinition Height="Auto"/>
+            <!-- Fila 5: 0, ,, %, +, = -->
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
+        <!-- PANTALLA (Fila 0): Muestra el texto que escribe el usuario y los resultados -->
         <Border
             Grid.Row="0"
             Background="#FF2E2E2E"
@@ -39,13 +47,17 @@
             BorderThickness="1" BorderBrush="#FF1E1E1E"
             Margin="20,20,20,0"
             >
+            <!-- TextBlock vinculado a la propiedad "Display" del ViewModel -->
+            <!-- Se actualiza automáticamente cuando Display cambia -->
             <TextBlock Text="{Binding Display}" 
                        Foreground="White" FontSize="36" 
                        HorizontalAlignment="Left" VerticalAlignment="Center"
                        Margin="10"/>
         </Border>
         
+        <!-- FILA 1: DEL, (, ), MOD, π -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <!-- Botón DEL: Borra toda la entrada (color rojo) -->
             <Button Content="DEL"
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -53,6 +65,7 @@
                     BorderThickness="0"
                     Command="{Binding DeleteCommand}"/>
             
+            <!-- Botón para abrir paréntesis -->
             <Button Content="("
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -60,6 +73,7 @@
                     BorderThickness="1" BorderBrush="#FF1E1E1E"
                     Command="{Binding ParenthesisCommand}" CommandParameter="("/>
             
+            <!-- Botón para cerrar paréntesis -->
             <Button Content=")"
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -67,6 +81,7 @@
                     BorderThickness="1" BorderBrush="#FF1E1E1E"
                     Command="{Binding ParenthesisCommand}" CommandParameter=")"/>
             
+            <!-- Botón MOD: Operador módulo (resto de división) -->
             <Button Content="MOD"
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -74,6 +89,7 @@
                     BorderThickness="1" BorderBrush="#FF1E1E1E"
                     Command="{Binding SpecialFunctionCommand}" CommandParameter="mod"/>
             
+            <!-- Botón π: Constante matemática PI -->
             <Button Content="π"
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -83,7 +99,9 @@
             
         </StackPanel>
         
+        <!-- FILA 2: 7, 8, 9, ÷, √ -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5,0,0">
+            <!-- Botones numéricos -->
             <Button Content="7"
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -105,6 +123,7 @@
                     BorderThickness="1" BorderBrush="#FF1E1E1E"
                     Command="{Binding NumberInputCommand}" CommandParameter="9"/>
             
+            <!-- Botón ÷: División -->
             <Button Content="÷"
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -112,6 +131,7 @@
                     BorderThickness="1" BorderBrush="#FF1E1E1E"
                     Command="{Binding OperatorInputCommand}" CommandParameter="/"/>
             
+            <!-- Botón √: Raíz cuadrada -->
             <Button Content="√"
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -120,7 +140,9 @@
                     Command="{Binding SpecialFunctionCommand}" CommandParameter="sqrt"/>
         </StackPanel>
         
+        <!-- FILA 3: 4, 5, 6, *, ² -->
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5,0,0">
+            <!-- Botones numéricos -->
             <Button Content="4"
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -142,6 +164,7 @@
                     BorderThickness="1" BorderBrush="#FF1E1E1E"
                     Command="{Binding NumberInputCommand}" CommandParameter="6"/>
             
+            <!-- Botón *: Multiplicación -->
             <Button Content="*"
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -149,6 +172,7 @@
                     BorderThickness="1" BorderBrush="#FF1E1E1E"
                     Command="{Binding OperatorInputCommand}" CommandParameter="*"/>
             
+            <!-- Botón ²: Elevar al cuadrado -->
             <Button Content="X²"
                     Width="120" Height="50" Margin="5, 0, 5, 0"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -157,78 +181,88 @@
                     Command="{Binding SpecialFunctionCommand}" CommandParameter="square"/>
         </StackPanel>
             
-            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5,0,0">
-                    <Button Content="1"
-                            Width="120" Height="50" Margin="5, 0, 5, 0"
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
-                            BorderThickness="1" BorderBrush="#FF1E1E1E"
-                            Command="{Binding NumberInputCommand}" CommandParameter="1"/>
-                    
-                    <Button Content="2"
-                            Width="120" Height="50" Margin="5, 0, 5, 0"
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
-                            BorderThickness="1" BorderBrush="#FF1E1E1E"
-                            Command="{Binding NumberInputCommand}" CommandParameter="2"/>
-                    
-                    <Button Content="3"
-                            Width="120" Height="50" Margin="5, 0, 5, 0"
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
-                            BorderThickness="1" BorderBrush="#FF1E1E1E"
-                            Command="{Binding NumberInputCommand}" CommandParameter="3"/>
-                    
-                    <Button Content="-"
-                            Width="120" Height="50" Margin="5, 0, 5, 0"
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
-                            BorderThickness="1" BorderBrush="#FF1E1E1E"
-                            Command="{Binding OperatorInputCommand}" CommandParameter="-"/>
-                    
-                    <Button Content="X!"
-                            Width="120" Height="50" Margin="5, 0, 5, 0"
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
-                            BorderThickness="1" BorderBrush="#FF1E1E1E"
-                            Command="{Binding SpecialFunctionCommand}" CommandParameter="factorial"/>
+        <!-- FILA 4: 1, 2, 3, -, ! -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5,0,0">
+                <!-- Botones numéricos -->
+                <Button Content="1"
+                        Width="120" Height="50" Margin="5, 0, 5, 0"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                        BorderThickness="1" BorderBrush="#FF1E1E1E"
+                        Command="{Binding NumberInputCommand}" CommandParameter="1"/>
+                
+                <Button Content="2"
+                        Width="120" Height="50" Margin="5, 0, 5, 0"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                        BorderThickness="1" BorderBrush="#FF1E1E1E"
+                        Command="{Binding NumberInputCommand}" CommandParameter="2"/>
+                
+                <Button Content="3"
+                        Width="120" Height="50" Margin="5, 0, 5, 0"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                        BorderThickness="1" BorderBrush="#FF1E1E1E"
+                        Command="{Binding NumberInputCommand}" CommandParameter="3"/>
+                
+                <!-- Botón -: Resta -->
+                <Button Content="-"
+                        Width="120" Height="50" Margin="5, 0, 5, 0"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                        BorderThickness="1" BorderBrush="#FF1E1E1E"
+                        Command="{Binding OperatorInputCommand}" CommandParameter="-"/>
+                
+                <!-- Botón !: Factorial -->
+                <Button Content="X!"
+                        Width="120" Height="50" Margin="5, 0, 5, 0"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                        BorderThickness="1" BorderBrush="#FF1E1E1E"
+                        Command="{Binding SpecialFunctionCommand}" CommandParameter="factorial"/>
             </StackPanel>
             
-            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5,0,0">
-                    <Button Content="0"
-                            Width="120" Height="50" Margin="5, 0, 5, 0"
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
-                            BorderThickness="1" BorderBrush="#FF1E1E1E"
-                            Command="{Binding NumberInputCommand}" CommandParameter="0"/>
-                    
-                    <Button Content=","
-                            Width="120" Height="50" Margin="5, 0, 5, 0"
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
-                            BorderThickness="1" BorderBrush="#FF1E1E1E"
-                            Command="{Binding NumberInputCommand}" CommandParameter=","/>
-                    
-                    <Button Content="%"
-                            Width="120" Height="50" Margin="5, 0, 5, 0"
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
-                            BorderThickness="1" BorderBrush="#FF1E1E1E"
-                            Command="{Binding OperatorInputCommand}" CommandParameter="%"/>
-                    
-                    <Button Content="+"
-                            Width="120" Height="50" Margin="5, 0, 5, 0"
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
-                            BorderThickness="1" BorderBrush="#FF1E1E1E"
-                            Command="{Binding OperatorInputCommand}" CommandParameter="+"/>
-                    
-                    <Button Content="="
-                            Width="120" Height="50" Margin="5, 0, 5, 0"
-                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                            Background="Green" Foreground="White" FontSize="20" CornerRadius="5"
-                            BorderThickness="1" BorderBrush="#FF1E1E1E"
-                            Command="{Binding CalculateCommand}"/>
+        <!-- FILA 5: 0, ,, %, +, = -->
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 5,0,0">
+                <!-- Botón 0 -->
+                <Button Content="0"
+                        Width="120" Height="50" Margin="5, 0, 5, 0"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                        BorderThickness="1" BorderBrush="#FF1E1E1E"
+                        Command="{Binding NumberInputCommand}" CommandParameter="0"/>
+                
+                <!-- Botón ,: Separador decimal -->
+                <Button Content=","
+                        Width="120" Height="50" Margin="5, 0, 5, 0"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                        BorderThickness="1" BorderBrush="#FF1E1E1E"
+                        Command="{Binding NumberInputCommand}" CommandParameter=","/>
+                
+                <!-- Botón %: Módulo (operador) -->
+                <Button Content="%"
+                        Width="120" Height="50" Margin="5, 0, 5, 0"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Background="#FF2E2E2E" Foreground="White" CornerRadius="5"
+                        BorderThickness="1" BorderBrush="#FF1E1E1E"
+                        Command="{Binding OperatorInputCommand}" CommandParameter="%"/>
+                
+                <!-- Botón +: Suma -->
+                <Button Content="+"
+                        Width="120" Height="50" Margin="5, 0, 5, 0"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Background="#FF2E2E2E" Foreground="White" FontSize="20" CornerRadius="5"
+                        BorderThickness="1" BorderBrush="#FF1E1E1E"
+                        Command="{Binding OperatorInputCommand}" CommandParameter="+"/>
+                
+                <!-- Botón =: Calcular (color verde destacado) -->
+                <Button Content="="
+                        Width="120" Height="50" Margin="5, 0, 5, 0"
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                        Background="Green" Foreground="White" FontSize="20" CornerRadius="5"
+                        BorderThickness="1" BorderBrush="#FF1E1E1E"
+                        Command="{Binding CalculateCommand}"/>
             </StackPanel>
     </Grid>
 </Window>
