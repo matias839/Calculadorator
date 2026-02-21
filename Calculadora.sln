@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculadora", "Calculadora\Calculadora.csproj", "{CBC1004E-A1B1-4A38-A67C-47CCC44C931C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBC1004E-A1B1-4A38-A67C-47CCC44C931C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBC1004E-A1B1-4A38-A67C-47CCC44C931C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBC1004E-A1B1-4A38-A67C-47CCC44C931C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBC1004E-A1B1-4A38-A67C-47CCC44C931C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
